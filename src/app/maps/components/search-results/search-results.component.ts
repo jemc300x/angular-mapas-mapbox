@@ -5,11 +5,13 @@ import { MapService, PlacesService } from '../../services';
 @Component({
   selector: 'app-search-results',
   templateUrl: './search-results.component.html',
-  styleUrls: ['./search-results.component.css']
+  styleUrls: ['./search-results.component.css'],
+
 })
 export class SearchResultsComponent {
 
   selectedId!: string;
+  showResult = true;
 
   constructor(
     private placesService: PlacesService,
@@ -38,7 +40,12 @@ export class SearchResultsComponent {
     const end = place.center as [number, number];
 
     this.mapService.getRouterBetweenPoints(start, end);
-    this.placesService.clearPlaces();
+    this.placesService.updateShowResult(false);
+    this.showResult = false;
+  }
+
+  onToggle() {
+    this.showResult = !this.showResult;
   }
 
 }

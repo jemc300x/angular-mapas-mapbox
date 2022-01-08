@@ -7,4 +7,23 @@
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   width: 270px;
+  display: flex;
+  flex-direction: column;
+}
+
+.result-container {
+  flex: 1;
+  margin-top: 10px;
+  overflow-y: auto;
+  height: calc(100% - 100px);
+}
+
+button {
+  background-color: #cecece;
+  border: none;
+  outline: none;
+  height: 1rem;
+  padding: 0;
+  line-height: 1rem;
+  font-size: 1.5rem;
 }

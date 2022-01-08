@@ -1,4 +1,5 @@
-<div class="search-container">
+<div class="search-container"
+  [@openClose]="showResult ? 'open':'closed'">
   <input
     type="text"
     placeholder="Buscar lugar..."
@@ -6,5 +7,10 @@
     (keyup)="onQueryChanged(txtInput.value)"
     class="form-control">
 
-    <app-search-results></app-search-results>
+    <div class="result-container">
+      <app-search-results></app-search-results>
+    </div>
+    <button (click)="onToggle()">
+      {{ showResult ? '&#9653;' : '&#9663;' }}
+    </button>
 </div>
